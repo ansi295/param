@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Авторизация</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <main class="main">
+      <div class="container">
+        <div class="auth__wrapper">
+          <div class="auth__modal" id="auth">
+            <h2 class="auth__title">Вход</h2>
+            <p class="auth__modal-info">Введите данные, чтобы войти в личный кабинет</p>
+            <div class="auth__modal-items">
+              <input class="auth__input" type="email" id="email" placeholder="Электронная почта" />
+              <input class="auth__input" type="password" id="password" placeholder="Пароль" />
+              <button type="submit" class="auth-btn" id="loginBtn">Войти</button>
+              <button type="button" class="button-go-register auth-btn auth-btn--sm">Зарегистрироваться</button>
+            </div>
+          </div>
+          <div class="auth__register none" id="registration">
+            <h2 class="auth__title">Регистрация пользователя</h2>
+            <p class="auth__modal-info">
+              Создайте аккаунт, чтобы войти в личный кабинет
+            </p>
+            <form class="auth__modal-items auth__modal-items--register" action="">
+              <input class="auth__input" type="text" required id="fullName" placeholder="ФИО" pattern="[A-Za-zА-Яа-яЁё]+" title="Пожалуйста, введите только буквы"/>
+              <input class="auth__input auth__input--w50" required type="date" id="birthDate" placeholder="Дата рождения" />
+              <input class="auth__input auth__input--w50" type="text" id="phone" placeholder="Телефон" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" title="Пожалуйста, номер телефона форма  +7 (926) 331-13-44" required/>
+              <input class="auth__input auth__input--w50" required type="text" id="username" placeholder="Логин" />
+              <input class="auth__input auth__input--w50" required type="email" id="regEmail" placeholder="Электронная почта" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Пожалуйста, введите корректный email, используя только английские символы"/>
+              <select class="auth__input auth__input--w50" required id="position">
+                <option selected value="user">Новый сотрудник</option>
+                <option value="admin">Админ</option>
+              </select>
+              <input class="auth__input auth__input--w50" type="password" id="regPassword" placeholder="Пароль" />
+              <button class="auth-btn" id="registerBtn">Регистрация</button>
+              <p id="regMessage"></p>
+              <button type="button" class="button-go-login auth-btn auth-btn--sm">Назад к авторизации</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

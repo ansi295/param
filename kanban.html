@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS CSS HTML Kanban Board</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- <link rel="stylesheet" href="./css/kanban.css" /> -->
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__inner">
+        <div class="header__items">
+          <a class="header__item header__item--inbox" href="/">Входящие</a>
+          <a class="header__item header__item--notification" href="/">Уведомления</a>
+          <button class="header__button header__button--new-task">
+            + Добавить задачу
+          </button>
+        </div>
+        <div class="header__user-avatar">
+          <img src="./img/avatar-1.svg" alt="аватар" />
+          <button class="header__user-logout">Выйти</button>
+        </div>
+      </div>
+    </header>
+    <div class="subheader">
+      <div class="subheader__inner">
+        <div class="subheader__info">
+          <div class="subheader__info-project-name">Проект 1</div>
+          <div class="subheader__info-filter">
+            <img src="./img/subheader-filter.svg" alt="" />
+            Фильтры
+            <div class="subheader__info-filter--reset">
+              <div class="reset">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#777777"  viewBox="0 0 50 50" width="50px" height="50px"><path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"/></svg>
+              </div>
+              Сбросить фильтр
+            </div>
+          </div>
+        </div>
+        <div class="subheader__actions">
+          <div class="subheader__actions-users">
+            <img src="./img/avatar-1.svg" alt="" />
+          </div>
+          <button class="subheader__actions-share">
+            Удалить проект
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="inbox">
+      <div class="inbox__header">
+        <div class="inbox__header-item">Входящие</div>
+      </div>
+      <div class="inbox__body">
+        <div class="inbox__item">
+          <div class="inbox__item-info">
+            <div class="inbox__item-name">Иван Иванович</div>
+            <div class="inbox__item-msg">Привет. Как дела с твоей задачей?</div>
+          </div>
+          <div class="inbox__item-nav">
+            <div class="inbox__item-nav-text">Перейти</div>
+            <img src="./img/arrow.svg" alt="" class="inbox__item-nav-img">
+          </div>
+        </div>
+        <div class="inbox__item">
+          <div class="inbox__item-info">
+            <div class="inbox__item-name">Петр Авдеев</div>
+            <div class="inbox__item-msg">Привет. Нужна помощь?</div>
+          </div>
+          <div class="inbox__item-nav">
+            <div class="inbox__item-nav-text">Перейти</div>
+            <img src="./img/arrow.svg" alt="" class="inbox__item-nav-img">
+          </div>
+        </div>
+        <div class="inbox__item">
+          <div class="inbox__item-info">
+            <div class="inbox__item-name">София менеджер</div>
+            <div class="inbox__item-msg">Когда будет готова задача!?</div>
+          </div>
+          <div class="inbox__item-nav">
+            <div class="inbox__item-nav-text">Перейти</div>
+            <img src="./img/arrow.svg" alt="" class="inbox__item-nav-img">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notification">
+      <div class="notification__header">
+        <div class="notification__header-item">Уведомления</div>
+      </div>
+      <div class="notification__body">
+        <div class="notification__item">
+          <div class="notification__item-info">
+            <div class="notification__item-msg">Вам назначена новая задача по проекту “Вывод денег с хомяка”. </div>
+          </div>
+        </div>
+        <div class="notification__item">
+          <div class="notification__item-info">
+            <div class="notification__item-msg">Создан отчет по проекту “Чипсы лейс с крабом”.</div>
+          </div>
+        </div>
+        <div class="notification__item">
+          <div class="notification__item-info">
+            <div class="notification__item-msg">Вас добавили в новый проект “Покупка нового гаджета айфон 16 про макс на 1 тб”.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="aside">
+      <div class="aside__header">
+        <a href="/kanban.html" class="aside__header-logo">
+          <img src="./img/logo.png" alt="logo" />
+        </a>
+      </div>
+      <div class="aside__filter">
+        <img src="./img/filter-aside.svg" alt="" />
+        <div class="aside__filter-inner">Проекты</div>
+      </div>
+      <div class="aside__project" id="new-project-btn">Новый проект +</div>
+    
+      <!-- Сюда будут добавляться проекты -->
+      <div id="projects-list">
+        <!-- Проект 1 будет отображаться по умолчанию -->
+        <div class="aside__project" data-id=1>Проект 1</div>
+      </div>
+    
+      
+    </aside>
+    <section class="column-container">
+      <div class="task-column" id="backlog">
+        <h3 class="task-column__title task-column__title--red">
+          Техническое з...
+        </h3>
+        <div class="task-list">
+        </div>
+      </div>
+
+      <div class="task-column" id="doing">
+        <h3 class="task-column__title task-column__title--blue">В работе</h3>
+        <div class="task-list"></div>
+      </div>
+
+      <div class="task-column" id="done">
+        <h3 class="task-column__title task-column__title--green">
+          На доработку
+        </h3>
+        <div class="task-list"></div>
+      </div>
+
+      <div class="task-column" id="discard">
+        <h3 class="task-column__title task-column__title--pink">Готово</h3>
+        <div class="task-list"></div>
+      </div>
+    </section>
+
+    <div class="error-container"></div>
+
+    <!-- Модальное окно добавления задачи -->
+    <div class="add-task-modal">
+        <div class="add-task-modal__container">
+            <h3 class="auth__title auth__title--sm">Создать новую задачу</h3>
+            <form class="add-task-modal__form" action="">
+                <input required id="title" class="auth__input" type="text" placeholder="Название задачи">
+                <textarea required id="description" class="auth__input" name="" id="" placeholder="Описание задачи"></textarea>
+                <input required id="date" class="auth__input" type="date" placeholder="Дата выполнения">
+                <select id="executor" class="auth__input auth__input add-task__input-executor" required id="position">
+                </select>
+                <button id="create-task" class="auth-btn">Создать</button>
+            </form>
+            <button class="add-task-modal__close">
+                <img src="./img/close-icon.svg" alt="">
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Модальное окно фильтрации -->
+    <div class="filter-modal">
+      <div class="filter-modal__container">
+        <div class="filter-modal__title auth__title auth__title--sm">Фильтр</div>
+          <div class="filter-modal__label-search">Ключевое слово</div>
+          <input type="text" placeholder="Введите ключевое слово" id="searchInputFilter" class="filter-modal__search">
+          <div class="filter-modal__checkbox-wrapper">
+            <div class="filter-modal__checkbox-title">Срок</div>
+            <div class="filter-modal__checkbox-content">
+              <input type="checkbox" id="overdue" class="custom-checkbox" value="overdue">
+              <label for="overdue" class="custom-label filter-modal__checkbox-descr filter-modal__checkbox-descr--red">Просроченные</label>
+            </div>
+            <div class="filter-modal__checkbox-content">
+              <input type="checkbox" id="dueSoon" class="custom-checkbox" value="dueSoon">
+              <label for="dueSoon" class="custom-label filter-modal__checkbox-descr filter-modal__checkbox-descr--warning">Истекает в течение суток</label>
+            </div>
+            <div class="filter-modal__checkbox-content">
+              <input type="checkbox" id="dueWeek" class="custom-checkbox" value="dueWeek">
+              <label for="dueWeek" class="custom-label filter-modal__checkbox-descr filter-modal__checkbox-descr--succsess">Истекает в течение недели</label>
+            </div>
+          </div>
+          <button class="filter-modal__close">
+            <img src="./img/close-icon.svg" alt="">
+          </button>
+      </div>
+    </div>
+
+    <!-- Модальное окно просмотра карточки -->
+    <div class="task-modal">
+      <div class="task-modal__container">
+        <div class="task-modal__decor"></div>
+        <div class="task-modal__title auth__title auth__title--sm"></div>
+        <div class="task-modal__date">До <span class="taskmodal-date-value"></span></div>
+        <div class="task-modal__description-title">Описание</div>
+        <div class="task-modal__description"></div>
+        <input type="text" class="task-modal__input" placeholder="Напишите комментарий...">
+        <div class="task-modal__description-title">Исполнитель</div>
+        <div class="task-modal__executor"></div>
+        <select id="executor-task-modal" class="auth__input auth__input task-modal__input-executor" required id="position"></select>
+        <button class="task-modal__close">
+          <img src="./img/close-icon.svg" alt="">
+        </button>
+        <div class="task-modal__comments">
+
+        </div>
+        <button class="task-modal__delete-task-btn" id="delete-button">Удалить задачу</button>
+      </div>
+    </div>
+
+    <script src="./kanban.js"></script>
+  </body>
+</html>
